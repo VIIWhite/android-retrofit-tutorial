@@ -24,12 +24,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MovieListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private MovieListAdapter adapter;
-    private List<TopRatedResponse> movieList = new ArrayList<>();
-
+    private List<Movie> movieList = new ArrayList<>();
     static final String TAG = MovieListActivity.class.getSimpleName();
     static final String BASE_URL = "https://api.themoviedb.org/3/";
     static Retrofit retrofit = null;
     final static String API_KEY = "5f7cb29d489bbbb86ca6e6d90f422eb2";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,9 +61,7 @@ public class MovieListActivity extends AppCompatActivity {
                 movieList.clear();
                 movieList.addAll(response.body().getResults());
                 adapter.notifyDataSetChanged();
-//                TextView tv;
-//                tv = findViewById(R.id.tvTitle);
-//                tv.setText(response.body().getVoteAverage().toString());
+
             }
 
             @Override
@@ -72,6 +70,5 @@ public class MovieListActivity extends AppCompatActivity {
             }
         });
     }
-
 
 }

@@ -14,9 +14,9 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.ViewHolder> {
-    private List<TopRatedResponse> mData;
+    private List<Movie> mData;
 
-    MovieListAdapter(List<TopRatedResponse> data) {
+    MovieListAdapter(List<Movie> data) {
         this.mData = data;
     }
 
@@ -44,7 +44,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        TopRatedResponse movie = mData.get(position);
+        Movie movie = mData.get(position);
         holder.title.setText(movie.getTitle());
         holder.releaseDate.setText(movie.getReleaseDate());
         holder.overview.setText(movie.getOverview());
